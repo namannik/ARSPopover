@@ -40,6 +40,9 @@
 /// Use this property to configure where popover's arrow should be pointing.
 @property (nonatomic, assign) UIPopoverArrowDirection arrowDirection;
 
+/// The bar button item on which to anchor the popover.
+@property (nonatomic, assign) UIBarButtonItem *barButtonItem;
+
 /// The view containing the anchor rectangle for the popover.
 @property (nonatomic, weak) UIView *sourceView;
 

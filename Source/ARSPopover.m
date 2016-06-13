@@ -68,8 +68,13 @@
 #pragma mark - Popover Presentation Controller Delegate
 
 - (void)prepareForPopoverPresentation:(UIPopoverPresentationController *)popoverPresentationController {
-    self.popoverPresentationController.sourceView = self.sourceView ? self.sourceView : self.view;
-    self.popoverPresentationController.sourceRect = self.sourceRect;
+    if (self.barButtonItem) {
+        self.popoverPresentationController.barButtonItem = self.barButtonItem;
+    } else {
+        self.popoverPresentationController.sourceView = self.sourceView ? self.sourceView : self.view;
+        self.popoverPresentationController.sourceRect = self.sourceRect;
+    }
+    
     self.preferredContentSize = self.contentSize;
     
     popoverPresentationController.permittedArrowDirections = self.arrowDirection ? self.arrowDirection : UIPopoverArrowDirectionAny;
